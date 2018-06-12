@@ -34,6 +34,8 @@ ifeq ($(OS_NAME),win32)
 	LIBS += -lws2_32
 endif
 
+shared: $(SHARED_LIB_NAME)
+
 all: $(LIB_NAME)
 
 $(OBJ_DIR):
@@ -56,7 +58,7 @@ test: AdsLibTest.bin
 	./$<
 
 clean:
-	rm -f *.a *.o *.bin AdsLibTest/*.o $(OBJ_DIR)/*.o
+	rm -f *.a *.o *.bin AdsLibTest/*.o $(OBJ_DIR)/*.o *.so
 
 uncrustify:
 	uncrustify --no-backup -c tools/uncrustify.cfg AdsLib*/*.h AdsLib*/*.cpp example/*.cpp
